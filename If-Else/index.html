@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="parent">
+        <p class="para" id="para" onclick="changeFontColor()">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum, illum.
+        </p>
+        <p class="para2" id="para2" onclick="Para2()"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique tempora eius enim animi sapiente quo
+            laudantium veniam officia sequi dolores.</p>
+    </div>
+
+    <script>
+        let x = document.getElementById("para")
+        // Functions
+
+        function changeFontColor() {
+            x.style.backgroundColor = "yellowgreen"
+            x.style.color = "blue"
+            x.style.fontSize = "2rem"
+        }
+       let y = document.getElementById("para2")
+
+function Para2() {
+    y.style.backgroundColor = "Yellow"
+    y.style.color = "Blue"
+    y.style.fontSize = "3rem"
+}
+    </script>
+
+</body>
+
+</html>

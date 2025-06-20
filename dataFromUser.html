@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" onsubmit="printing(event)">
+        <div class="inputDetails">
+            <label for="">Name</label>
+            <input type="text" name="" id="">
+        </div>
+        <div class="inputDetails">
+            <label for="">Physics</label>
+            <input type="text" class="phy" id="">
+        </div>
+        <div class="inputDetails">
+            <label for="">Chemistry</label>
+            <input type="text" name="" id="chm">
+        </div>
+        <div class="inputDetails">
+            <label for="">Bio</label>
+            <input type="text" name="" id="" class="bio">
+        </div>
+        <div class="inputDetails">
+            <label for="">Maths</label>
+            <input type="text" name="" id="maths">
+        </div>
+        <button>Submit</button>
+    </form>
+
+    <script>
+        let x = document.getElementsByTagName("input")[0]
+        let phy = document.getElementsByClassName("phy")[0]
+        let chm = document.getElementById("chm")
+        let bio = document.querySelector(".bio")
+        let maths = document.querySelector("#maths")
+
+        function printing(event){
+            event.preventDefault();
+            // console.log(event)
+            console.log(parseInt(phy.value) + parseInt(chm.value))
+        }
+    </script>
+</body>
+
+</html>
