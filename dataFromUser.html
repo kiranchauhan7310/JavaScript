@@ -32,17 +32,43 @@
         <button>Submit</button>
     </form>
 
+
+    <h1>Marks </h1>
+
+    <div class="reportCard"></div>
+
+
     <script>
         let x = document.getElementsByTagName("input")[0]
         let phy = document.getElementsByClassName("phy")[0]
         let chm = document.getElementById("chm")
         let bio = document.querySelector(".bio")
         let maths = document.querySelector("#maths")
-
-        function printing(event){
+        let result = ""
+        let report = document.querySelector(".reportCard")
+        function printing(event) {
             event.preventDefault();
-            // console.log(event)
-            console.log(parseInt(phy.value) + parseInt(chm.value))
+            let phy1 = parseInt(phy.value)
+            let chm1 = parseInt(chm.value)
+            let bio1 = parseInt(bio.value)
+            let maths1 = parseInt(maths.value)
+            console.log(phy1, "  ", chm1, "  ", bio1, "  ", maths1, "  ")
+            let total = phy1 + chm1 + maths1 + bio1
+            let per = total / 4
+            console.log("total : ",total)
+            console.log("per : ",per)
+            if (per >= 85) {
+                report.innerHTML = "<h1>Dictinction</h1>"
+            } else if (per >= 75 && per < 85) {
+                report.innerHTML = "<h1>1st Div</h1>"
+            } else if (per >= 55 && per < 75) {
+                report.innerHTML = "<h1>2nd Div</h1>"
+            } else {
+                report.innerHTML = "<h1>fail</h1>"
+            }
+
+           
+
         }
     </script>
 </body>
