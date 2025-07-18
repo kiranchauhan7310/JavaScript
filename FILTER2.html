@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .product {
+            padding: 22px;
+            margin: 10px 0;
+            border: 1px solid;
+        }
+
+        .box {
+            border: 1px solid;
+            padding: 0 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Products</h2>
+    <div class="controls">
+
+        <input type="text" placeholder="Search here.." id="search">
+
+        <select name="" id="Category">
+            <option value="">All Categories</option>
+            <option value="electronics">Electronics</option>
+            <option value="clothing">Clothing</option>
+            <option value="stationary">Stationary</option>
+        </select>
+        <select name="" id="price">
+            <option value="">Choose Range</option>
+            <option value="high">High to Low</option>
+            <option value="low">Low to High</option>
+        </select>
+    </div>
+    <div class="productlist"></div>
+    <script>
+        let srch = document.getElementById("search");
+        let category = document.getElementById("Category");
+        let price = document.getElementById("price");
+        let pl = document.querySelector(".productlist");
+
+        const products = [
+            {
+                name: "smartphone",
+                category: "electronics",
+                price: 15000,
+                brand: "Oneplus",
+            },
+            {
+                name: "smartphone",
+                category: "electronics",
+                price: 50000,
+                brand: "apple",
+
+            },
+            {
+                name: "tablet",
+                category: "electronics",
+                price: 30000,
+                brand: "apple",
+            },
+            {
+                name: "tablet",
+                category: "electronics",
+                price: 50000,
+                brand: "xiamo",
+            },
+            {
+                name: "t-shirt",
+                category: "clothing",
+                price: 1000,
+                brand: "bewakoof",
+            },
+            {
+                name: "t-shirt",
+                category: "clothing",
+                price: 500,
+                brand: "zara",
+            },
+            {
+                name: "book",
+                category: "stationary",
+                price: 999,
+                brand: "classmate",
+            },
+            {
+                name: "book",
+                category: "stationary",
+                price: 799,
+                brand: "rahul",
+            }
+        ];
+
+
+        function filterProducts() {
+            let copyProducts = [...products];
+            let srchValue = srch.value.toLowerCase();
+
+            if (srchValue) {
+                copyProducts = copyProducts.filter((i) => i.name.toLowerCase().includes(srchValue));
+            }
+
+            if (category.value) {
+                copyProducts = copyProducts.filter((i) => i.category.toLowerCase() === category.value.toLowerCase());
+            }
+
+            if (price.value === "high") {
+                copyProducts.sort((a, b) => b.price - a.price);
+            }
+
+            if (price.value === "low") {
+                copyProducts.sort((a, b) => a.price - b.price);
+            }
+
+            displayProducts(copyProducts);
+        }
+
+        function displayProducts(k) {
+            pl.innerHTML = "";
+            if (k.length === 0) {
+                pl.innerHTML = `<h2>Product not found</h2>`;
+                return;
+            }
+
+            k.forEach(i => {
+                pl.innerHTML += `<div class="box"><h3>${i.name}</h3>
+        <p>${i.category}</p>
+        <p>${i.price}</p>
+        <p>${i.brand}</p></div>`;
+            });
+        }
+
+        displayProducts(products);
+
+        srch.addEventListener("input", filterProducts);
+        category.addEventListener("change", filterProducts);
+        price.addEventListener("change", filterProducts);
+
+    </script>
+</body>
+
+</html>

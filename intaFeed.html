@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: bisque;
+            height: 100vh;
+        }
+
+        .card {
+            height: 400px;
+            width: 400px;
+            border: 1px solid;
+        }
+
+        .card img {
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+
+        .dil {
+            font-size: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            color: white;
+            opacity: 0.6;
+        }
+        .dil2{
+            font-size: 2.2rem;
+            color: white;
+            /* border: 1px solid; */
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <img ondblclick="changecolor()" src="https://img.buzzfeed.com/buzzfeed-static/static/2025-02/20/19/asset/ecb2bc769d0c/sub-buzz-3634-1740079333-1.jpg?downsize=700%3A%2A&output-quality=auto&output-format=auto"
+                alt="">
+            <span onclick="changecolor()" class="dil2"><i class="ri-heart-3-fill"></i></span>
+            <div class="heart" onclick="changecolor()"><span class="dil"><i class="ri-heart-3-fill"></i></span></div>
+        </div>
+    </div>
+    <script>
+        let heart = document.querySelector(".dil2")
+        let dil1 = document.querySelector(".dil")
+        let img = document.querySelector("img")
+        let flag = 0;
+        function changecolor() {
+            if (flag == 0) {
+                dil1.style.transform = "translate(-50%, -50%) scale(1.5)"
+                heart.style.color = "red"
+                flag = 1;
+                setInterval(() => {
+                     dil1.style.opacity = "0"
+                }, 2000);
+            }
+            // else {
+            //     heart.style.backgroundColor = "white"
+            //     flag = 1;
+            // }
+        }
+    </script>
+</body>
+
+</html>

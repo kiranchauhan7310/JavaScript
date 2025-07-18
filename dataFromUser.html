@@ -11,7 +11,7 @@
     <form action="" onsubmit="printing(event)">
         <div class="inputDetails">
             <label for="">Name</label>
-            <input type="text" name="" id="">
+            <input type="text" name="" id="name">
         </div>
         <div class="inputDetails">
             <label for="">Physics</label>
@@ -39,7 +39,7 @@
 
 
     <script>
-        let x = document.getElementsByTagName("input")[0]
+        let name = document.querySelector("#name")
         let phy = document.getElementsByClassName("phy")[0]
         let chm = document.getElementById("chm")
         let bio = document.querySelector(".bio")
@@ -51,23 +51,26 @@
             let phy1 = parseInt(phy.value)
             let chm1 = parseInt(chm.value)
             let bio1 = parseInt(bio.value)
+            name = name.value
             let maths1 = parseInt(maths.value)
             console.log(phy1, "  ", chm1, "  ", bio1, "  ", maths1, "  ")
             let total = phy1 + chm1 + maths1 + bio1
             let per = total / 4
-            console.log("total : ",total)
-            console.log("per : ",per)
+            console.log("total : ", total)
+            console.log("per : ", per)
             if (per >= 85) {
-                report.innerHTML = "<h1>Dictinction</h1>"
+                result = "Dictinction"
             } else if (per >= 75 && per < 85) {
-                report.innerHTML = "<h1>1st Div</h1>"
+                result = "1st Div"
             } else if (per >= 55 && per < 75) {
-                report.innerHTML = "<h1>2nd Div</h1>"
+                result = "2nd Div"
             } else {
-                report.innerHTML = "<h1>fail</h1>"
+                result = '<span style="border: 1px solid red;background-color: red;color: white; ">fail</span>'
             }
 
-           
+            report.innerHTML = `<table style><tr><th>Sno</th><th>Name</th><th>Phy</th> <th>Chem</th><th>Bio</th><th>Math</th><th>Total</th><th>Percetange</th><th>Remark</th></tr>
+                                        <tr><td>1</td><td>${name}</td><td>${phy1}</td> <td>${chm1}</td><td>${bio1}</td><td>${maths1}</td><td>${total}</td><td>${per}</td><td>${result}</td></tr></table>`
+
 
         }
     </script>

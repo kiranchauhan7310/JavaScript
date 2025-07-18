@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .data{
+            background-color: aqua;
+            display: flex;
+            /* justify-content: space-around; */
+            align-items: center;
+        }
+    .Cards{
+        border: 1px solid;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="data"></div>
+</body>
+<script>
+    let a = document.querySelector(".data")
+    const person = [{
+        "Name": "Sweta",
+        "Age": 27,
+    },
+    {
+        "Name": "Kiran",
+        "Age": 27,
+    },
+    {
+        "Name": "Nikita",
+        "Age": 25,
+    },
+    {
+        "Name": "Anjali",
+        "Age": 30,
+    },
+    {
+        "Name": "Suraj",
+        "Age": 26,
+    }]
+    function printing() {
+        person.forEach((i) => {
+            let div = document.createElement("div")
+            let title = document.createElement("h3")
+            let age = document.createElement("p")
+            title.innerText = i.Name
+            age.innerText = i.Age
+            div.appendChild(title)
+            div.appendChild(age)
+            a.appendChild(div)
+            div.className = "Cards"
+        });
+    }
+    printing()
+</script>
+
+</html>

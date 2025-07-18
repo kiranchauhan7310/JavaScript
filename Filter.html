@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .product {
+            padding: 22px;
+            margin: 10px 0;
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Products</h2>
+    <div class="controls">
+
+        <input type="text" placeholder="Search here.." id="search">
+        
+        <select name="" id="Category">
+            <option value="">All Categories</option>
+            <option value="electronics">Electronics</option>
+            <option value="clothing">Clothing</option>
+            <option value="stationary">Stationary</option>
+        </select>
+        <select name="" id="price">
+            <option value="">Choose Range</option>
+            <option value="high">High to Low</option>
+            <option value="low">Low to High</option>
+        </select>
+    </div>
+    <div class="productlist"></div>
+    <script>
+        let srch = document.getElementById("search");
+        let category = document.getElementById("Category");
+        let price = document.getElementById("price");
+
+        let pl = document.querySelector(".productlist");
+        const products = [{
+            name: "smartphone",
+            category: "electronics",
+            price: 15000,
+            brand: "Oneplus",
+        },
+        {
+            name: "smartphone",
+            category: "electronics",
+            price: 50000,
+            brand: "apple",
+
+        },
+        {
+            name: "tablet",
+            category: "electronics",
+            price: 30000,
+            brand: "apple",
+        },
+        {
+            name: "tablet",
+            category: "electronics",
+            price: 50000,
+            brand: "xiamo",
+        },
+        {
+            name: "t-shirt",
+            category: "clothing",
+            price: 1000,
+            brand: "bewakoof",
+        },
+        {
+            name: "t-shirt",
+            category: "clothing",
+            price: 500,
+            brand: "zara",
+        },
+        {
+            name: "book",
+            category: "stationary",
+            price: 999,
+            brand: "classmate",
+        },
+        {
+            name: "book",
+            category: "stationary",
+            price: 799,
+            brand: "rahul",
+        }
+        ];
+
+        function displayproducts(d) {
+            pl.innerHTML = "";
+            if (d.length == 0) {
+               pl.innerHTML= `<h1> No Products found </h1>`;
+               return;
+            }
+            d.forEach((e) => {
+                let div = document.createElement("div");
+                div.className = "product";
+                div.innerHTML =` <strong>${e.name}</strong> <br>
+    category: ${e.category} <br>
+    price : ${e.price} <br>
+    brand:${e.brand}`;
+    pl.appendChild(div);
+});
+        }
+        function applyFilter() {
+            let filtered = [...products]; 
+            let SearchText = srch.value.toLowerCase();
+            if (SearchText) {
+                filtered = filtered.filter((i) =>   
+                i.name.toLowerCase().includes(SearchText) || i.brand.toLowerCase().includes(SearchText)
+            ); 
+            }
+let SelectedCategory = category.value;
+if (SelectedCategory) {
+    filtered = filtered.filter((i) => 
+    i.category === SelectedCategory);
+}
+if (price.value=="low"){
+    filtered.sort((a,b)=> a.price-b.price)
+}
+if (price.value=="high"){
+    filtered.sort((a,b)=> b.price-a.price)
+}
+displayproducts(filtered);
+        }
+        //event
+        srch.addEventListener("input", applyFilter);
+        category.addEventListener("change", applyFilter);
+        price.addEventListener("change", applyFilter);
+        displayproducts(products);
+    </script>
+</body>
+
+</html>

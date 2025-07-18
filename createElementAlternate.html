@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .data {
+            background-color: aqua;
+            display: flex;
+            /* justify-content: space-around; */
+            align-items: center;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .trending {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+
+        .navSymbols span {
+            padding: 10px;
+            /* background-color: antiquewhite; */
+            border-radius: 50%;
+            border: 1px solid;
+            margin: 0 2px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 44px;
+            /* padding: 2rem 6rem; */
+            margin: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card img {
+            height: 270px;
+            width: 351px;
+            border-radius: 10px;
+        }
+
+        .pricing {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .rate span {
+            color: goldenrod;
+        }
+
+        .rating p {
+            text-align: right;
+        }
+
+        .card h1,
+        p {
+            text-transform: capitalize;
+        }
+
+        .card {
+            padding: 10px 10px 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="trending">
+            <div class="heading">
+                <h1>Trendings</h1>
+            </div>
+            <div class="navSymbols">
+                <span><i class="ri-arrow-left-s-line"></i></span>
+                <span><i class="ri-arrow-right-s-line"></i></span>
+            </div>
+        </div>
+        <div class="data">
+
+
+        </div>
+    </div>
+</body>
+<script>
+    let a = document.querySelector(".data")
+    const person = [{
+        Name: "Sweta",
+        Age: 27,
+        image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    },
+    {
+        Name: "Kiran",
+        Age: 27,
+        image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+    },
+    {
+        Name: "Nikita",
+        Age: 25,
+        image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+    },
+    {
+        Name: "Anjali",
+        Age: 30,
+        image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+    },
+    {
+        Name: "Suraj",
+        Age: 26,
+        image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+    }]
+    function printing() {
+        person.forEach((i) => {
+            a.innerHTML += ` <div class="card">
+                <img src="${i.image}" alt="">
+                <h1>${i.Name}</h1>
+                <p>Hiking Our | stoke on Trent</p>
+
+                <div class="pricing">
+                    <div class="price">
+                        <p>from</p>
+                        <h1>957</h1>
+                        <p>price may varies</p>
+                    </div>
+                    <div class="rating">
+                        <div class="rate">
+                            <span><i class="ri-star-s-fill"></i></span>
+                            <span><i class="ri-star-s-fill"></i></span>
+                            <span><i class="ri-star-s-fill"></i></span>
+                            <span><i class="ri-star-half-s-line"></i></span>
+                            <span><i class="ri-star-s-line"></i></span>
+                        </div>
+                        <p>4.8(10)</p>
+                    </div>
+                </div>
+            </div>`
+        });
+    }
+    printing()
+</script>
+
+</html>
